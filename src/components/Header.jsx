@@ -38,15 +38,16 @@ const Header = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link to="/" className="font-Russo_One flex items-center gap-2">
+          <span className="text-5xl text-sky-500">BS</span>
+          <span className="font-bold uppercase text-lg">Brand Shop</span>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {navLinks}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to="/login" className="btn">Logout</Link>
       </div>
     </div>
   );

@@ -5,13 +5,13 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
+    <div className="font-Inter">
       <Header />
       <main>
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
