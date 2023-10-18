@@ -15,7 +15,7 @@ const Banner = () => {
             <p className="font-semibold">Sale Offer <span className="text-red-500">-10% Off</span> This Week</p>
             <h2 className="mb-5 text-5xl font-bold">Top Trending Headphone 2019</h2>
             <h3 className="mb-5 font-semibold">Starting at <span className="text-red-500 font-bold text-5xl">$809.00</span></h3>
-            <button className="btn btn-info">Get Started</button>
+            <button className="btn btn-info">Shop Now</button>
           </div>
         </div>
         </div>
