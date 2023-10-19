@@ -3,7 +3,7 @@ import Slider from "./Slider";
 
 const Products = () => {
   return (
-    <section className="py-20">
+    <section>
       <div className="container mx-auto">
         <div>
           <Slider />
