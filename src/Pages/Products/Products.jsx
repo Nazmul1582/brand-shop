@@ -3,8 +3,7 @@ import Product from "./Product";
 import Slider from "./Slider";
 
 const Products = () => {
-  const data = useLoaderData();
-  console.log(data);
+  const loadedProducts = useLoaderData();
   return (
     <section>
       <div className="container mx-auto">
@@ -12,10 +11,9 @@ const Products = () => {
           <Slider />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-10">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          {
+            loadedProducts.map(product => <Product key={product._id} product={product} />)
+          }
         </div>
       </div>
     </section>
