@@ -1,7 +1,10 @@
+import { useLoaderData } from "react-router-dom";
 import Product from "./Product";
 import Slider from "./Slider";
 
 const Products = () => {
+  const data = useLoaderData();
+  console.log(data);
   return (
     <section>
       <div className="container mx-auto">
