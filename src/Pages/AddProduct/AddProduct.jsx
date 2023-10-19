@@ -12,7 +12,7 @@ const AddProduct = () => {
     const description = form.description.value;
     const rating = form.rating.value;
     const product = {name, image, brandName, type, price, rating, description}
-    console.log(product);
+
     fetch('http://localhost:5000/products', {
       method: "POST",
       headers: {
@@ -22,7 +22,6 @@ const AddProduct = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       if(data.insertedId){
         Swal.fire(
           'Good job!',
@@ -30,6 +29,7 @@ const AddProduct = () => {
           'success'
         )
       }
+      form.reset();
     })
     .catch(error => {
       Swal.fire(
