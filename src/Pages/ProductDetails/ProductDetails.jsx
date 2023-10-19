@@ -1,9 +1,40 @@
 import { BiDollar } from "react-icons/bi";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const product = useLoaderData();
   const { name, image, brandName, type, price, rating } = product;
+
+  const handleAddToCart = product => {
+    const newProduct = {...product, addToCart: true}
+    
+    fetch(`http://localhost:5000/product-details/${product._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(newProduct)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.modifiedCount > 0){
+        Swal.fire(
+          'Good job!',
+          'Product added successfully!',
+          'success'
+        )
+      }
+    })
+    .catch(error => {
+      Swal.fire(
+        'Oops!',
+        `${error.message}`,
+        'error'
+      )
+    })
+  }
 
   return (
     <section className="py-20">
@@ -31,7 +62,7 @@ const ProductDetails = () => {
               <p>Brand: <span className="font-bold">{brandName}</span></p>
               <p>Category: <span className="font-bold">{type}</span></p>
               <div className="card-actions">
-                <button className="btn btn-info">Add To Cart</button>
+                <button onClick={() => handleAddToCart(product)} className="btn btn-info">Add To Cart</button>
               </div>
             </div>
           </div>
