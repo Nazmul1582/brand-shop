@@ -1,8 +1,9 @@
 import { BiDollar } from "react-icons/bi";
 import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { name, image, brandName, type, price, rating } = product;
+  const {_id, name, image, brandName, type, price, rating } = product;
 
   return (
     <div className="card bg-base-100 shadow-xl">
@@ -20,7 +21,7 @@ const Product = ({ product }) => {
           }
         </div>
         <div className="card-actions justify-center">
-          <button className="btn btn-info">Details</button>
+          <Link to={`/product-details/${_id}`}><button className="btn btn-info">Details</button></Link>
           <button className="btn btn-info btn-outline">Update</button>
         </div>
       </div>
