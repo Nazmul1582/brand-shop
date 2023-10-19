@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const Brand = ({ brand }) => {
   const { name, logo } = brand;
@@ -13,5 +14,9 @@ const Brand = ({ brand }) => {
     </Link>
   );
 };
+
+Brand.propTypes = {
+  brand: PropTypes.object
+}
 
 export default Brand;
