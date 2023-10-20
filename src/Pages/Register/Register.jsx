@@ -13,6 +13,15 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if(password.length < 6){
+        Swal.fire(
+            "Oops...",
+            "Your password must be 6 characters or longer!",
+            "error"
+        )
+        return;
+      }
+
     createUser(email, password, name)
       .then(() => {
         Swal.fire("Good job!", "User created successfully!", "success");
