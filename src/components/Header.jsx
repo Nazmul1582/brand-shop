@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import userImage from '../assets/react.svg'
 
 const Header = () => {
+  const {user, logout} = useContext(AuthContext)
+
   const navLinks = (
     <>
       <li>
@@ -52,8 +57,27 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
-        <Link to="/login" className="btn">Logout</Link>
+      <div className="navbar-end gap-2">
+      {user ? (
+            <>
+              <h4 className="font-semibold hidden md:block">{user.displayName}</h4>
+              <label tabIndex={0} className="btn btn-info btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    src={user.photoURL ? user.photoURL : userImage}
+                    alt="profle image"
+                  />
+                </div>
+              </label>
+              <Link onClick={logout} to="/login" className="btn btn-info">
+                logout
+              </Link>
+            </>
+          ) : (
+            <Link to="/login" className="btn btn-info">
+              login
+            </Link>
+          )}
       </div>
     </div>
   );
