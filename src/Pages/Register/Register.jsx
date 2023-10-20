@@ -1,14 +1,32 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
-    const handleRegister = event => {
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(name, email, password);
-    }
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password, name);
+
+    createUser(email, password)
+      .then(() => {
+        Swal.fire("Good job!", "User created successfully!", "success");
+        form.reset();
+      })
+      .catch((error) => {
+        Swal.fire(
+            'Oops...',
+            `${error}!`,
+            'error'
+          )
+      });
+  };
   return (
     <section className="py-20">
       <div className="container mx-auto">
