@@ -12,9 +12,8 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password, name);
 
-    createUser(email, password)
+    createUser(email, password, name)
       .then(() => {
         Swal.fire("Good job!", "User created successfully!", "success");
         form.reset();
