@@ -9,6 +9,7 @@ import Register from "../Pages/Register/Register.jsx";
 import NoFound from "../Pages/NoFound/NoFound.jsx";
 import App from "../App";
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,11 +23,11 @@ const router = createBrowserRouter([
         },
         {
           path: "add-product",
-          element: <AddProduct />,
+          element: <PrivateRoute><AddProduct /></PrivateRoute>
         },
         {
           path: "my-cart",
-          element: <MyCart />,
+          element: <PrivateRoute><MyCart /></PrivateRoute>,
           loader: () => fetch("http://localhost:5000/my-cart"),
         },
         {
@@ -45,13 +46,13 @@ const router = createBrowserRouter([
         },
         {
           path: "product-details/:id",
-          element: <ProductDetails />,
+          element: <PrivateRoute><ProductDetails /></PrivateRoute> ,
           loader: ({ params }) =>
             fetch(`http://localhost:5000/product-details/${params.id}`),
         },
         {
           path: "/update/:id",
-          element: <Update />,
+          element: <PrivateRoute><Update /></PrivateRoute>,
           loader: ({ params }) =>
             fetch(`http://localhost:5000/update/${params.id}`),
         },
