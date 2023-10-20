@@ -3,7 +3,7 @@ import { BiDollar } from "react-icons/bi";
 
 const MyCart = () => {
   const products = useLoaderData();
-  console.log(products);
+
   return (
     <section className="py-20">
       <div className="container mx-auto">
