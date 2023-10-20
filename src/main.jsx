@@ -12,11 +12,13 @@ import ProductDetails from "./Pages/ProductDetails/ProductDetails.jsx";
 import Update from "./Pages/Update/Update.jsx";
 import Register from "./Pages/Register/Register.jsx";
 import AuthProvider from "./Provider/AuthProvider.jsx";
+import NoFound from "./Pages/NoFound/NoFound.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <NoFound />,
     children: [
       {
         path: "/",
