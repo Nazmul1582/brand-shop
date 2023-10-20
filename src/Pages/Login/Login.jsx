@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login, loginWithGoogle } = useContext(AuthContext);
 
     const handleLogin = (event) => {
       event.preventDefault();
@@ -35,6 +35,20 @@ const Login = () => {
             )
         });
     };
+
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+        .then(() => {
+            Swal.fire("Good job!", "Logged-in successfully!", "success");
+          })
+        .catch((error) => {
+            Swal.fire(
+                'Oops...',
+                `${error}!`,
+                'error'
+              )
+          });
+    }
 
   return (
     <section className="py-20">
@@ -89,7 +103,7 @@ const Login = () => {
                   </Link>
                 </p>
                 <div className="flex justify-center">
-                  <button className="btn btn-outline btn-info">
+                  <button onClick={handleGoogleLogin} className="btn btn-outline btn-info">
                     <BiLogoGoogle className="text-2xl" />
                     Login With Google
                   </button>
