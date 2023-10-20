@@ -7,7 +7,7 @@ const HotDeal = ({product}) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <img src={image} alt="Headphone" />
+        <img className="max-h-52 w-full object-cover" src={image} alt="Headphone" />
       </figure>
       <div className="card-body justify-center items-center">
         <h2 className="card-title">{name}!</h2>

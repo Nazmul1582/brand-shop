@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const product = useLoaderData();
-  const { name, image, brandName, type, price, rating } = product;
+  const { name, image, brandName, type, price, rating, description } = product;
 
   const handleAddToCart = product => {
     const newProduct = {...product, addToCart: true}
@@ -60,6 +60,7 @@ const ProductDetails = () => {
               </div>
               <p>Brand: <span className="font-bold">{brandName}</span></p>
               <p>Category: <span className="font-bold">{type}</span></p>
+              <p className="mb-3">{description}</p>
               <div className="card-actions">
                 <button onClick={() => handleAddToCart(product)} className="btn btn-info">Add To Cart</button>
               </div>
