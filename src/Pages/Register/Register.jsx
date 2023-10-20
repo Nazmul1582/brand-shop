@@ -1,20 +1,32 @@
-import { BiLogoGoogle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto">
         <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold">Login now!</h1>
+              <h1 className="text-5xl font-bold">Register now!</h1>
               <p className="py-6">
-                Welcome to our Brand Shop. If you are already register our website, you can now sign in or log in with your email and password which you have provided to register.
+                Welcome to our website. If you want to explore more, you can
+                register. And If you want to buy any product from here, you have
+                to register first.
               </p>
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <form className="card-body">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="name"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -38,28 +50,21 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-info">Login</button>
+                  <button className="btn btn-info">Register</button>
                 </div>
               </form>
 
               <div className="px-8 pb-8">
                 <p className="text-center mb-5">
-                  If you are new, Please {" "}
+                  If you already have an account, Please{" "}
                   <Link
                     className="text-blue-500 font-bold underline"
-                    to="/register"
+                    to="/login"
                   >
-                    Register
+                    login
                   </Link>
                 </p>
-                <div className="flex justify-center">
-                  <button className="btn btn-outline btn-info">
-                    <BiLogoGoogle className="text-2xl" />
-                    Login With Google
-                  </button>
-                </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -68,4 +73,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
