@@ -6,7 +6,7 @@ const AddProduct = () => {
     const form = event.target;
     const name = form.name.value;
     const image = form.image.value;
-    const brandName = form.brandName.value;
+    const brandName = form.brandName.value.toLowerCase();
     const type = form.type.value;
     const price = form.price.value;
     const description = form.description.value;
@@ -55,7 +55,7 @@ const AddProduct = () => {
               </div>
               <div className="form-control w-full">
                 <label className="label">
-                  <span className="label-text">Image</span>
+                  <span className="label-text">Image url</span>
                 </label>
                 <input type="text" name="image" className="input input-bordered" />
               </div>
