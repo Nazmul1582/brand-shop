@@ -1,8 +1,56 @@
 import { useLoaderData } from "react-router-dom";
 import { BiDollar } from "react-icons/bi";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 const MyCart = () => {
-  const products = useLoaderData();
+  const loadedProducts = useLoaderData();
+  const [products, setProducts] = useState(loadedProducts)
+
+  const handleDelete = product => {
+    product.addToCart = false;
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/products/${product._id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(product)
+        })
+        .then(res => res.json())
+        .then(data => {
+          const remaining = products.filter(item => item._id !== product._id)
+          setProducts(remaining)
+          
+          if(data.modifiedCount > 0){
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
+        .catch(error => {
+          Swal.fire(
+            'Oops!',
+            `${error.message}`,
+            'error'
+          )
+        })
+      }
+    })
+
+  }
 
   return (
     <section className="py-20">
@@ -29,7 +77,7 @@ const MyCart = () => {
                     </div>
                   </td>
                   <td>
-                    <button className="btn btn-error btn-sm">delete</button>
+                    <button onClick={() => handleDelete(product)} className="btn btn-error btn-sm">delete</button>
                   </td>
                 </tr>
               ))}
