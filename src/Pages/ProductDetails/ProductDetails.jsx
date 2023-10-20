@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const handleAddToCart = product => {
     const newProduct = {...product, addToCart: true}
     
-    fetch(`http://localhost:5000/product-details/${product._id}`, {
+    fetch(`https://brand-shop-server-21ibh08re-muhammadnazmul02-gmailcom.vercel.app/product-details/${product._id}`, {
       method: "PUT",
       headers: {
         "Content-Type":"application/json"

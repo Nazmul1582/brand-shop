@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         {
           path: "/",
           element: <Home />,
-          loader: () => fetch('http://localhost:5000/products')
+          loader: () => fetch('https://brand-shop-server-21ibh08re-muhammadnazmul02-gmailcom.vercel.app/products')
         },
         {
           path: "add-product",
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         {
           path: "my-cart",
           element: <PrivateRoute><MyCart /></PrivateRoute>,
-          loader: () => fetch("http://localhost:5000/my-cart"),
+          loader: () => fetch("https://brand-shop-server-21ibh08re-muhammadnazmul02-gmailcom.vercel.app/my-cart"),
         },
         {
           path: "login",
@@ -43,19 +43,19 @@ const router = createBrowserRouter([
           path: "products/:brand",
           element: <Products />,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/products/${params.brand}`),
+            fetch(`https://brand-shop-server-21ibh08re-muhammadnazmul02-gmailcom.vercel.app/products/${params.brand}`),
         },
         {
           path: "product-details/:id",
           element: <PrivateRoute><ProductDetails /></PrivateRoute> ,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/product-details/${params.id}`),
+            fetch(`https://brand-shop-server-21ibh08re-muhammadnazmul02-gmailcom.vercel.app/product-details/${params.id}`),
         },
         {
           path: "/update/:id",
           element: <PrivateRoute><Update /></PrivateRoute>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/update/${params.id}`),
+            fetch(`https://brand-shop-server-21ibh08re-muhammadnazmul02-gmailcom.vercel.app/update/${params.id}`),
         },
       ],
     },

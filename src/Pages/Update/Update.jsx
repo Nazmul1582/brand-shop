@@ -23,7 +23,7 @@ const Update = () => {
       rating,
     };
 
-    fetch(`http://localhost:5000/products/${_id}`, {
+    fetch(`https://brand-shop-server-21ibh08re-muhammadnazmul02-gmailcom.vercel.app/products/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type":"application/json"
