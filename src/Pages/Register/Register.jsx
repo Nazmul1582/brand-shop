@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 
 const Register = () => {
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password);
+    }
   return (
     <section className="py-20">
       <div className="container mx-auto">
@@ -15,13 +23,14 @@ const Register = () => {
               </p>
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-              <form className="card-body">
+              <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>
                   </label>
                   <input
                     type="text"
+                    name="name"
                     placeholder="name"
                     className="input input-bordered"
                     required
@@ -33,6 +42,7 @@ const Register = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     placeholder="email"
                     className="input input-bordered"
                     required
@@ -44,6 +54,7 @@ const Register = () => {
                   </label>
                   <input
                     type="password"
+                    name="password"
                     placeholder="password"
                     className="input input-bordered"
                     required
