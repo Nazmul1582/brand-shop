@@ -1,7 +1,32 @@
+import { useContext } from "react";
 import { BiLogoGoogle } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
+
+    const handleLogin = (event) => {
+      event.preventDefault();
+      const form = event.target;
+      const email = form.email.value;
+      const password = form.password.value;
+  
+      login(email, password)
+        .then(() => {
+          Swal.fire("Good job!", "Logged-in successfully!", "success");
+          form.reset();
+        })
+        .catch((error) => {
+          Swal.fire(
+              'Oops...',
+              `${error}!`,
+              'error'
+            )
+        });
+    };
+
   return (
     <section className="py-20">
       <div className="container mx-auto">
@@ -14,13 +39,14 @@ const Login = () => {
               </p>
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-              <form className="card-body">
+              <form onSubmit={handleLogin} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
                   </label>
                   <input
                     type="email"
+                    name='email'
                     placeholder="email"
                     className="input input-bordered"
                     required
@@ -32,6 +58,7 @@ const Login = () => {
                   </label>
                   <input
                     type="password"
+                    name="password"
                     placeholder="password"
                     className="input input-bordered"
                     required
