@@ -46,7 +46,7 @@ const AddProduct = () => {
         <h2 className="mb-5 font-bold text-3xl text-center">Add Product</h2>
         <div className="card mx-auto w-full md:w-2/3 shadow-2xl bg-base-100">
           <form onSubmit={handleAddProduct} className="card-body">
-            <div className="flex gap-5">
+            <div className="flex flex-wrap lg:flex-nowrap gap-5">
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -60,7 +60,7 @@ const AddProduct = () => {
                 <input type="text" name="image" className="input input-bordered" required />
               </div>
             </div>
-            <div className="flex gap-5">
+            <div className="flex flex-wrap lg:flex-nowrap gap-5">
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Brand Name</span>
@@ -74,7 +74,7 @@ const AddProduct = () => {
                 <input type="text" name="type" className="input input-bordered" required />
               </div>
             </div>
-            <div className="flex gap-5">
+            <div className="flex flex-wrap lg:flex-nowrap gap-5">
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Price</span>

@@ -11,11 +11,13 @@ const HotDeals = ({products}) => {
             Hot <span className="text-sky-500">Deals</span>
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {
-              products.slice(0, 8).map(product => <HotDeal key={product._id} product={product} />)
-            }
-        </div>
+        {
+          products.length ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {
+            products.slice(0, 8).map(product => <HotDeal key={product._id} product={product} />)
+          }
+      </div> : <h2 className="font-bold text-3xl text-center py-10">There are no product available. Please add some products.</h2>
+        }
       </div>
     </section>
   );

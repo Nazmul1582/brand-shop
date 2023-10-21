@@ -9,7 +9,7 @@ const Products = () => {
       <Slider />
       <div className="container mx-auto">
         {loadedProducts.length ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-20">
             {loadedProducts.map((product) => (
               <Product key={product._id} product={product} />
             ))}

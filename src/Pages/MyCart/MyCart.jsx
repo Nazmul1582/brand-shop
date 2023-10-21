@@ -55,7 +55,7 @@ const MyCart = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto">
-        <div className="overflow-x-auto w-2/3 mx-auto">
+        <div className="overflow-x-auto w-full md:w-2/3 mx-auto">
           <table className="table table-zebra">
             <tbody>
               {products.map((product) => (
