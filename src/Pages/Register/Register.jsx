@@ -38,7 +38,7 @@ const Register = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto">
-        <div className="hero min-h-screen">
+        <div className="hero">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold">Register now!</h1>

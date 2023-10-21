@@ -1,25 +1,33 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import userImage from '../assets/user.png'
+import userImage from "../assets/user.png";
 
 const Header = () => {
-  const {user, logout} = useContext(AuthContext)
+  const { user, logout } = useContext(AuthContext);
 
   const navLinks = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/add-product">Add Product</Link>
-      </li>
-      <li>
-        <Link to="/my-cart">My Cart</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
+      {user && (
+        <>
+          <li>
+            <Link to="/add-product">Add Product</Link>
+          </li>
+          <li>
+            <Link to="/my-cart">My Cart</Link>
+          </li>
+        </>
+      )}
+      {!user && (
+        <>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -58,26 +66,28 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end gap-2">
-      {user ? (
-            <>
-              <h4 className="font-semibold hidden md:block">{user.displayName}</h4>
-              <label tabIndex={0} className="btn btn-info btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img
-                    src={user.photoURL ? user.photoURL : userImage}
-                    alt="profle image"
-                  />
-                </div>
-              </label>
-              <Link onClick={logout} to="/login" className="btn btn-info">
-                logout
-              </Link>
-            </>
-          ) : (
-            <Link to="/login" className="btn btn-info">
-              login
+        {user ? (
+          <>
+            <h4 className="font-semibold hidden md:block">
+              {user.displayName}
+            </h4>
+            <label tabIndex={0} className="btn btn-info btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img
+                  src={user.photoURL ? user.photoURL : userImage}
+                  alt="profle image"
+                />
+              </div>
+            </label>
+            <Link onClick={logout} to="/login" className="btn btn-info">
+              logout
             </Link>
-          )}
+          </>
+        ) : (
+          <Link to="/login" className="btn btn-info">
+            login
+          </Link>
+        )}
       </div>
     </div>
   );

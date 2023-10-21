@@ -29,15 +29,15 @@ const Slider = () => {
       >
         <SwiperSlide>
           <img className="w-full h-full" src="https://i.ibb.co/ts6CTJG/levitating-music-headphones-display.jpg" alt="slider image"/>
-          <SlideContent />
+          <SlideContent productName="Headphone" price={749.99} />
         </SwiperSlide>
         <SwiperSlide>
           <img className="w-full h-full" src="https://i.ibb.co/yqyYSSB/google-phone.jpg" alt="slider image" />
-          <SlideContent />
+          <SlideContent productName="Smartphone" price={899.99} />
         </SwiperSlide>
         <SwiperSlide>
           <img className="w-full h-full" src="https://i.ibb.co/VDVtcWZ/laptop3.jpg" alt="slider image" />
-          <SlideContent />
+          <SlideContent productName="Laptop" price={1299.99} />
         </SwiperSlide>        
       </Swiper>
     </>
