@@ -11,20 +11,6 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import SlideContent from "./SlideContent";
 
 const Slider = () => {
-  const images = [
-    {
-      id: 1,
-      img: "https://i.ibb.co/C1fCWd1/smartwatch1.jpg",
-    },
-    {
-      id: 2,
-      img: "https://i.ibb.co/C1fCWd1/smartwatch1.jpg",
-    },
-    {
-      id: 3,
-      img: "https://i.ibb.co/C1fCWd1/smartwatch1.jpg",
-    },
-  ];
   return (
     <>
       <Swiper
@@ -39,17 +25,20 @@ const Slider = () => {
         }}
         navigation={true}
         modules={[ Autoplay, Pagination, Navigation]}
-        className="mySwiper h-96 relative"
+        className="mySwiper w-full h-[90vh] relative"
       >
-        <SwiperSlide style={{ backgroundImage: `url(${images[0].img})` }}>
+        <SwiperSlide>
+          <img className="w-full h-full" src="https://i.ibb.co/ts6CTJG/levitating-music-headphones-display.jpg" alt="slider image"/>
           <SlideContent />
         </SwiperSlide>
-        <SwiperSlide style={{ backgroundImage: `url(${images[1].img})` }}>
+        <SwiperSlide>
+          <img className="w-full h-full" src="https://i.ibb.co/yqyYSSB/google-phone.jpg" alt="slider image" />
           <SlideContent />
         </SwiperSlide>
-        <SwiperSlide style={{ backgroundImage: `url(${images[2].img})` }}>
+        <SwiperSlide>
+          <img className="w-full h-full" src="https://i.ibb.co/VDVtcWZ/laptop3.jpg" alt="slider image" />
           <SlideContent />
-        </SwiperSlide>
+        </SwiperSlide>        
       </Swiper>
     </>
   );
