@@ -1,6 +1,6 @@
-# React-Brand-Shop-Client-Side
+# Brand-Shop
 
-Website live link: [React Brand Shop](https://brand-shop-1ffd7.web.app/)
+Website live link: [Brand Shop](https://brand-shop-1ffd7.web.app/)
 
 ## Features
 
